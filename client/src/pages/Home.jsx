@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+// eslint-disable-next-line no-unused-vars
 import { motion } from "framer-motion";
 import { AlignJustify, X, MessageCircle } from "lucide-react";
 import Footer from "../components/Footer";
@@ -45,20 +46,20 @@ const Home = () => {
     { href: "#how-it-works", label: "How It Works" },
     { href: "#routes", label: "Routes" },
     { href: "#testimonials", label: "Testimonials" },
-    { href: "#faq", label: "FAQ" }
+    { href: "#faq", label: "FAQ" },
   ];
 
   const menuVariants = {
     open: {
       opacity: 1,
       height: "auto",
-      transition: { type: "spring", stiffness: 300, damping: 30 }
+      transition: { type: "spring", stiffness: 300, damping: 30 },
     },
     closed: {
       opacity: 0,
       height: 0,
-      transition: { duration: 0.3, type: "spring" }
-    }
+      transition: { duration: 0.3, type: "spring" },
+    },
   };
 
   return (
@@ -68,19 +69,24 @@ const Home = () => {
         animate={{ y: 0 }}
         transition={{ type: "spring", stiffness: 300, damping: 20 }}
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          isScrolled 
-            ? "bg-white bg-opacity-95 backdrop-blur-sm shadow-md py-3" 
+          isScrolled
+            ? "bg-white bg-opacity-95 backdrop-blur-sm shadow-md py-3"
             : "bg-transparent py-5"
         }`}
       >
         <div className="max-w-7xl mx-auto flex justify-between items-center px-4 sm:px-6 lg:px-8">
-          <a href="/" className="flex items-center space-x-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-green-600 rounded-lg">
+          <a
+            href="/"
+            className="flex items-center space-x-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-green-600 rounded-lg"
+          >
             <div className="w-9 h-9 sm:w-10 sm:h-10 bg-gradient-to-r from-green-600 to-green-700 rounded-lg flex items-center justify-center text-white font-bold text-sm sm:text-base shadow-md">
               AT
             </div>
-            <span className="font-bold text-lg sm:text-xl">Ayan Tour & Travels</span>
+            <span className="font-bold text-lg sm:text-xl">
+              Ayan Tour & Travels
+            </span>
           </a>
-          
+
           <div className="hidden md:flex items-center space-x-1 lg:space-x-4">
             {navLinks.map((link) => (
               <a
@@ -98,16 +104,20 @@ const Home = () => {
               Book Now
             </AnimatedButton>
           </div>
-          
+
           <button
             className="md:hidden text-gray-700 focus:outline-none focus:ring-2 focus:ring-green-600 rounded-md p-1"
             onClick={toggleMenu}
             aria-label={isMenuOpen ? "Close menu" : "Open menu"}
           >
-            {isMenuOpen ? <X className="w-6 h-6" /> : <AlignJustify className="w-6 h-6" />}
+            {isMenuOpen ? (
+              <X className="w-6 h-6" />
+            ) : (
+              <AlignJustify className="w-6 h-6" />
+            )}
           </button>
         </div>
-        
+
         <motion.div
           initial="closed"
           animate={isMenuOpen ? "open" : "closed"}
@@ -149,7 +159,7 @@ const Home = () => {
             className="absolute -top-20 -left-16 w-64 sm:w-80 lg:w-96 h-64 sm:h-80 lg:h-96 bg-blue-200 rounded-full opacity-30 blur-3xl"
           />
         </div>
-        
+
         <div className="max-w-7xl mx-auto relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
@@ -165,15 +175,16 @@ const Home = () => {
             >
               Smart Travel Solutions
             </motion.span>
-            
+
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight mb-6 bg-clip-text text-transparent bg-gradient-to-r from-green-600 to-blue-600">
               Book Your Ride in Seconds
             </h1>
-            
+
             <p className="text-base sm:text-lg lg:text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
-              Seamless city-to-city travel with instant bookings. No login required.
+              Seamless city-to-city travel with instant bookings. No login
+              required.
             </p>
-            
+
             <motion.div
               className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 justify-center"
               initial={{ opacity: 0 }}
@@ -186,7 +197,7 @@ const Home = () => {
               >
                 Book Now
               </AnimatedButton>
-              
+
               <AnimatedButton
                 href="#how-it-works"
                 className="bg-white text-green-700 border border-green-600 hover:bg-green-50 px-6 py-3 sm:px-8 sm:py-4 text-base"
@@ -194,49 +205,6 @@ const Home = () => {
                 How It Works
               </AnimatedButton>
             </motion.div>
-          </motion.div>
-          
-          <motion.div
-            initial={{ opacity: 0, y: 80 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.8, duration: 0.8 }}
-            className="mt-12 sm:mt-16 max-w-5xl mx-auto"
-          >
-            <div className="relative bg-white rounded-2xl shadow-xl overflow-hidden">
-              <div className="absolute inset-0 bg-gradient-to-br from-green-50 to-blue-50 opacity-50" />
-              
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 p-4 sm:p-6 relative z-10">
-                <div className="bg-white rounded-lg shadow-sm p-4 hover:shadow-md transition-shadow">
-                  <div className="text-sm font-medium text-gray-500 mb-2">From</div>
-                  <div className="text-base sm:text-lg font-semibold">Select pickup city</div>
-                </div>
-                
-                <div className="bg-white rounded-lg shadow-sm p-4 hover:shadow-md transition-shadow">
-                  <div className="text-sm font-medium text-gray-500 mb-2">To</div>
-                  <div className="text-base sm:text-lg font-semibold">Select drop city</div>
-                </div>
-                
-                <div className="bg-white rounded-lg shadow-sm p-4 hover:shadow-md transition-shadow">
-                  <div className="text-sm font-medium text-gray-500 mb-2">Date</div>
-                  <div className="text-base sm:text-lg font-semibold">Choose date</div>
-                </div>
-                
-                <div className="bg-white rounded-lg shadow-sm p-4 flex items-center justify-between hover:shadow-md transition-shadow">
-                  <div>
-                    <div className="text-sm font-medium text-gray-500 mb-2">Car Type</div>
-                    <div className="text-base sm:text-lg font-semibold">Any</div>
-                  </div>
-                  
-                  <motion.button
-                    whileHover={{ scale: 1.03 }}
-                    whileTap={{ scale: 0.95 }}
-                    className="bg-gradient-to-r from-green-600 to-green-700 text-white px-6 py-3 rounded-lg font-medium text-base shadow-sm hover:shadow transition-all"
-                  >
-                    Search
-                  </motion.button>
-                </div>
-              </div>
-            </div>
           </motion.div>
         </div>
       </section>
@@ -259,11 +227,12 @@ const Home = () => {
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-6">
               Ready to Book Your Ride?
             </h2>
-            
+
             <p className="text-base sm:text-lg text-white text-opacity-90 max-w-2xl mx-auto mb-8">
-              Experience hassle-free intercity travel with just a few clicks. No login required!
+              Experience hassle-free intercity travel with just a few clicks. No
+              login required!
             </p>
-            
+
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -277,7 +246,7 @@ const Home = () => {
               >
                 Book Now
               </AnimatedButton>
-              
+
               <AnimatedButton
                 href="https://wa.me/1234567890"
                 target="_blank"
@@ -300,7 +269,7 @@ const Home = () => {
               </AnimatedButton>
             </motion.div>
           </motion.div>
-          
+
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -310,7 +279,9 @@ const Home = () => {
           >
             <div className="inline-flex items-center justify-center space-x-2 bg-white bg-opacity-20 rounded-full px-5 py-3">
               <MessageCircle size={18} />
-              <span className="text-sm font-medium">24/7 Customer Support Available</span>
+              <span className="text-sm font-medium">
+                24/7 Customer Support Available
+              </span>
             </div>
           </motion.div>
         </div>

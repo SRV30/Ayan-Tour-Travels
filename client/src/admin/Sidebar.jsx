@@ -1,13 +1,21 @@
-import { Car, MapPin, DollarSign, FileText, LayoutDashboard } from 'lucide-react';
-import { NavLink } from 'react-router-dom';
+import {
+  Car,
+  MapPin,
+  DollarSign,
+  FileText,
+  LayoutDashboard,
+  UserCircle,
+} from "lucide-react";
+import { NavLink } from "react-router-dom";
 
 const Sidebar = () => {
   const menu = [
-    { name: "Dashboard", icon: LayoutDashboard, path: "/" },
-    { name: "Cars", icon: Car, path: "/cars" },
-    { name: "Cities", icon: MapPin, path: "/cities" },
-    { name: "Pricing", icon: DollarSign, path: "/pricing" },
-    { name: "Bookings", icon: FileText, path: "/bookings" },
+  
+    { name: "Profile", icon: UserCircle, path: "/admin/profile" },
+    { name: "Cars", icon: Car, path: "/admin/cars" },
+    { name: "Cities", icon: MapPin, path: "/admin/cities" },
+    { name: "Pricing", icon: DollarSign, path: "/admin/pricing" },
+    { name: "Bookings", icon: FileText, path: "/admin/bookings" },
   ];
 
   return (
@@ -20,7 +28,7 @@ const Sidebar = () => {
             key={idx}
             className={({ isActive }) =>
               `flex items-center gap-3 p-2 rounded-xl transition-all ${
-                isActive ? 'bg-gray-800' : 'hover:bg-gray-900'
+                isActive ? "bg-gray-800" : "hover:bg-gray-900"
               }`
             }
           >
