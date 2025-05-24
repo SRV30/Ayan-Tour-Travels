@@ -19,7 +19,7 @@ const WhatsAppFloatingButton = () => {
   const message = encodeURIComponent(
     "Hi, I need some help regarding your services."
   );
-  const phoneNumber = user?.mobile ? `91${user.mobile}` : "919999999999";
+  const phoneNumber = user?.mobile ? `91${user.mobile}` : "917070186631";
   const whatsappLink = `https://wa.me/${phoneNumber}?text=${message}`;
 
   return (
