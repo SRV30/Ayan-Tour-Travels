@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 // eslint-disable-next-line no-unused-vars
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { AlignJustify, X, MessageCircle } from "lucide-react";
 import Footer from "../components/Footer";
 import FAQ from "../components/FAQ";
@@ -8,6 +8,7 @@ import Testimonials from "../components/Testimonials";
 import DesRoutes from "../components/DesRoutes";
 import HowItWorks from "../components/HowItWorks";
 import Features from "../components/Features";
+import AnimatedLogo from "../components/Logo";
 
 const AnimatedButton = ({ children, className, ...props }) => {
   return (
@@ -23,14 +24,24 @@ const AnimatedButton = ({ children, className, ...props }) => {
   );
 };
 
+const ProgressBar = () => {
+  const { scrollYProgress } = useScroll();
+  const scaleX = useTransform(scrollYProgress, [0, 1], [0, 1]);
+
+  return (
+    <motion.div
+      className="fixed top-0 left-0 right-0 h-1 bg-green-600 z-50"
+      style={{ scaleX, transformOrigin: "0%" }}
+    />
+  );
+};
+
 const Home = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [scrollY, setScrollY] = useState(0);
   const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrollY(window.scrollY);
       setIsScrolled(window.scrollY > 20);
     };
     window.addEventListener("scroll", handleScroll);
@@ -64,28 +75,20 @@ const Home = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-white to-green-50 text-gray-900 font-sans">
+      <ProgressBar />
+
       <motion.nav
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ type: "spring", stiffness: 300, damping: 20 }}
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
           isScrolled
             ? "bg-white bg-opacity-95 backdrop-blur-sm shadow-md py-3"
             : "bg-transparent py-5"
         }`}
       >
         <div className="max-w-7xl mx-auto flex justify-between items-center px-4 sm:px-6 lg:px-8">
-          <a
-            href="/"
-            className="flex items-center space-x-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-green-600 rounded-lg"
-          >
-            <div className="w-9 h-9 sm:w-10 sm:h-10 bg-gradient-to-r from-green-600 to-green-700 rounded-lg flex items-center justify-center text-white font-bold text-sm sm:text-base shadow-md">
-              AT
-            </div>
-            <span className="font-bold text-lg sm:text-xl">
-              Ayan Tour & Travels
-            </span>
-          </a>
+          <AnimatedLogo />
 
           <div className="hidden md:flex items-center space-x-1 lg:space-x-4">
             {navLinks.map((link) => (
@@ -151,11 +154,11 @@ const Home = () => {
       <section className="relative overflow-hidden pt-32 sm:pt-40 pb-16 sm:pb-24 px-4 sm:px-6 lg:px-8">
         <div className="absolute inset-0 overflow-hidden">
           <motion.div
-            style={{ y: scrollY * 0.2 }}
+            style={{ y: window.scrollY * 0.2 }}
             className="absolute top-20 -right-16 w-64 sm:w-80 lg:w-96 h-64 sm:h-80 lg:h-96 bg-green-200 rounded-full opacity-30 blur-3xl"
           />
           <motion.div
-            style={{ y: scrollY * -0.1 }}
+            style={{ y: window.scrollY * -0.1 }}
             className="absolute -top-20 -left-16 w-64 sm:w-80 lg:w-96 h-64 sm:h-80 lg:h-96 bg-blue-200 rounded-full opacity-30 blur-3xl"
           />
         </div>
@@ -181,8 +184,7 @@ const Home = () => {
             </h1>
 
             <p className="text-base sm:text-lg lg:text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
-              Seamless city-to-city travel with instant bookings. No login
-              required.
+              Seamless city-to-city travel with instant bookings. No login required.
             </p>
 
             <motion.div
@@ -229,8 +231,7 @@ const Home = () => {
             </h2>
 
             <p className="text-base sm:text-lg text-white text-opacity-90 max-w-2xl mx-auto mb-8">
-              Experience hassle-free intercity travel with just a few clicks. No
-              login required!
+              Experience hassle-free intercity travel with just a few clicks. No login required!
             </p>
 
             <motion.div
