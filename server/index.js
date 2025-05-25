@@ -51,11 +51,13 @@ import userRoutes from "./routes/userRoute.js";
 import carRouter from "./routes/carRouter.js";
 import cityRouter from "./routes/cityRoutes.js";
 import routeRouter from "./routes/routesRouter.js";
+import contactRouter from "./routes/contactRoutes.js";
 
 app.use("/api/admin", userRoutes);
 app.use("/api/cars", carRouter)
 app.use("/api/cities", cityRouter)
 app.use("/api/routes", routeRouter)
+app.use("/api/contact", contactRouter);
 
 let server;
 connectDB().then(() => {

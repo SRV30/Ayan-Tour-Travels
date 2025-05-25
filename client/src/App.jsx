@@ -18,6 +18,7 @@ import AdminCityManager from "./admin/AdminCityManager";
 import AdminRouteManager from "./admin/AdminRouteManager";
 import WhatsAppFloatingButton from "./components/WhatsappButton";
 import ScrollToTop from "./components/ScrollToTop";
+import AdminContactMessages from "./admin/AdminContactMessages";
 
 function App() {
   return (
@@ -45,6 +46,7 @@ function App() {
             <Route path="/cars" element={<AdminCarManager />} />
             <Route path="/cities" element={<AdminCityManager />} />
             <Route path="/pricing" element={<AdminRouteManager />} />
+            <Route path="/contact" element={<AdminContactMessages />} />
           </Route>
 
           <Route element={<PublicRoute />}>

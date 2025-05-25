@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-unused-vars
 import { motion } from "framer-motion";
 
 const steps = [
@@ -297,20 +298,6 @@ const HowItWorks = () => {
             </motion.div>
           ))}
         </div>
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.6, duration: 0.5 }}
-          className="mt-10 sm:mt-12 text-center"
-        >
-          <AnimatedButton
-            href="/book"
-            className="bg-gradient-to-r from-green-600 to-blue-600 text-white hover:from-green-700 hover:to-blue-700 px-6 py-3 sm:px-8 sm:py-4 text-sm sm:text-base"
-          >
-            Book Your Ride Now
-          </AnimatedButton>
-        </motion.div>
       </div>
     </section>
   );
