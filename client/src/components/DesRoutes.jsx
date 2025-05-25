@@ -162,15 +162,7 @@ const DesRoutes = () => {
       className="py-16 sm:py-24 px-4 sm:px-6 lg:px-16 bg-gradient-to-b from-white to-green-50"
     >
       <div className="max-w-7xl mx-auto relative">
-        <motion.div
-          className="absolute inset-0 -z-10"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 0.3 }}
-          transition={{ duration: 1 }}
-        >
-          <div className="absolute top-0 -left-20 w-64 h-64 bg-green-200 rounded-full blur-3xl opacity-50" />
-          <div className="absolute bottom-0 -right-20 w-80 h-80 bg-blue-200 rounded-full blur-3xl opacity-50" />
-        </motion.div>
+
 
         <motion.div
           initial={{ opacity: 0, y: 30 }}
