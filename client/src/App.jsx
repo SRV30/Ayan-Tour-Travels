@@ -19,6 +19,7 @@ import AdminRouteManager from "./admin/AdminRouteManager";
 import WhatsAppFloatingButton from "./components/WhatsappButton";
 import ScrollToTop from "./components/ScrollToTop";
 import AdminContactMessages from "./admin/AdminContactMessages";
+import AvailableCarsandCities from "./components/AvailableCars&Cities";
 
 function App() {
   return (
@@ -39,6 +40,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/available" element={<AvailableCarsandCities />} />
 
           <Route element={<ProtectedRoute />}>
             <Route path="/dashboard" element={<Dashboard />} />

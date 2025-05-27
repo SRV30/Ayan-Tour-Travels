@@ -162,8 +162,6 @@ const DesRoutes = () => {
       className="py-16 sm:py-24 px-4 sm:px-6 lg:px-16 bg-gradient-to-b from-white to-green-50"
     >
       <div className="max-w-7xl mx-auto relative">
-
-
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -339,6 +337,14 @@ const DesRoutes = () => {
             </AnimatedButton>
           </motion.div>
         )}
+      </div>
+      <div className="flex justify-center mt-8">
+        <AnimatedButton
+          href="/available"
+          className="bg-green-600 hover:bg-green-700 text-white font-medium px-6 py-3 rounded-full transition duration-300"
+        >
+          View available cars and cities
+        </AnimatedButton>
       </div>
     </section>
   );

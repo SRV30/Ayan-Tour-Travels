@@ -181,7 +181,15 @@ const Home = () => {
               animate={{ opacity: 1 }}
               transition={{ delay: 0.5, duration: 0.5 }}
             >
-              <AnimatedButton className="bg-gradient-to-r from-green-600 to-green-700 text-white hover:from-green-700 hover:to-green-800 px-6 py-3 sm:px-8 sm:py-4 text-base">
+              <AnimatedButton
+                onClick={() => {
+                  window.open(
+                    "https://wa.me/917070186631?text=Hi%2C%20I%20need%20some%20help%20regarding%20your%20services.",
+                    "_blank"
+                  );
+                }}
+                className="bg-gradient-to-r from-green-600 to-green-700 text-white hover:from-green-700 hover:to-green-800 px-6 py-3 sm:px-8 sm:py-4 text-base cursor-pointer"
+              >
                 Book Now
               </AnimatedButton>
 
